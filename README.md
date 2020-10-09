@@ -1,12 +1,13 @@
 # Kara-Charity
 
-This module provides the Charity data for each bundleId. Its final version will use a mocked set of 100 unique charities mapped in sets of 2-3 across 100 unique bundleIds; currently, its schema implements a minimum of mock data to verify API calls, and pulls no data from any external source.
+This module provides the Charity data for each bundleId. It uses a mocked set of 100 unique charities mapped in sets of 1-3 across 100 unique bundleIds; currently, it pulls no data from any external source.
+
+TBD:
+Tests
+React mockup
 
 ## Seed script:
 ## mysql -u root < schema.sql
-
-A successful API call can currently be evidenced in a GET request to /charity/all or /bundles/all
-More routes coming soon&trade!
 
 Internal routes (serving this module):
 - GET to (route) in Tier Service for bundleIDs (official seeding only)

@@ -4,8 +4,10 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "test",
-    "start": "node server.js"
+    "build": "webpack --config webpack.config.js --WATCH",
+    "start": "node server.js",
+    "start-dev": "NODEMON server.js",
+    "test": "mocha spec/serverSpec.js"
   },
   "repository": {
     "type": "git",
@@ -21,11 +23,20 @@
     "babel": "^6.23.0",
     "babel-cli": "^6.26.0",
     "bluebird": "^3.7.2",
+    "body-parser": "^1.19.0",
+    "chai": "^4.2.0",
     "express": "^4.17.1",
+    "mocha": "^8.1.3",
     "mongoose": "^5.10.7",
     "mysql": "^2.18.1",
     "node": "^14.13.0",
+    "node-mocks-http": "^1.9.0",
     "nodemon": "^2.0.4",
     "react": "^16.13.1"
+  },
+  "devDependencies": {
+    "@babel/preset-react": "^7.10.4",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12"
   }
 }
