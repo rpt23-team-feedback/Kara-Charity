@@ -1,7 +1,4 @@
-// 1. Component to render sample data
-// 2. Refactor to use data from route calls
-
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 
@@ -14,11 +11,8 @@ class App extends React.Component {
     }
   }
 
-  componentDidMount() {
-    // this.setState to update bundles from external server
-  }
-
   render() {
+    console.log(this.state.bundles);
     return (
       <div>
       TBD: Each route will be exemplified here for demonstration purposes.
@@ -28,4 +22,4 @@ class App extends React.Component {
 
 }
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById('charity'));
