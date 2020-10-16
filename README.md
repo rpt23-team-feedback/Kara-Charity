@@ -3,8 +3,9 @@
 This module provides the Charity data for each bundleId. It uses a mocked set of 100 unique charities mapped in sets of 1-3 across 100 unique bundleIds; currently, it pulls no data from any external source.
 
 TBD:
-Tests
-React mockup
+I need to whiteboard my React a bit further to get my intended data flow happening.
+My tests became very cumbersome using Mocha/Chai so I want to refactor to Jest asap.
+Reviewing proxy server integration.
 
 ## Seed script:
 ## mysql -u root < schema.sql
