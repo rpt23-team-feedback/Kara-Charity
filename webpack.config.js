@@ -1,15 +1,15 @@
 var path = require('path');
 var SRC_DIR = path.join(__dirname, '/client/src');
-var DIST_DIR = path.join(__dirname, '/client/dist');
+var DIST_DIR = path.join(__dirname, 'dist');
 
 module.exports = {
-  entry: `${SRC_DIR}/app.jsx`,
+  entry: './client/index.js',
   output: {
     filename: 'bundle.js',
     path: DIST_DIR
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx?/,
         include: SRC_DIR,
