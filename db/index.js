@@ -1,6 +1,5 @@
 const mysql = require('mysql');
-// const conf = require('./config.js');
-// const Promise = require('bluebird');
+const Promise = require('bluebird');
 const database = 'charities';
 
 const connection = mysql.createConnection({
@@ -8,8 +7,6 @@ const connection = mysql.createConnection({
   password: '',
   database: `${database}`
 });
-
-// const db = Promise.promisifyAll(connection);
 
 connection.connect((err) => {
   if (err) {
@@ -49,7 +46,7 @@ const getBundles = function(callback) {
   });
 };
 
-// access all of a given charity's info, for the modal
+// access all of a given charity's info, for image display and modal
 const getCharityById = function(id, callback) {
   return new Promise((resolve, reject) => {
     const queryStr = `SELECT name FROM charity WHERE id = ${id}`;
@@ -63,27 +60,6 @@ const getCharityById = function(id, callback) {
     });
   });
 };
-
-
-// db.connectAsync()
-//   .then(() => {
-//     console.log(`Connected to MySQL Charities!`)
-//   })
-//   .then(() => {
-//     db.queryAsync(`CREATE DATABASE IF NOT EXISTS ${database}`)
-//   })
-//   .then(() => {
-//     db.queryAsync(`USE ${database}`)
-//   })
-//   .then(() => {
-//     conf(db)
-//   })
-  // .then(() => {
-  //   db.queryAsync(`INSERT INTO charity (id, name, description) VALUES ('1','Parker-Erdman','Sunt quod autem et et et distinctio. Aut est eum omnis mollitia explicabo quia nulla voluptatibus. Amet consequatur saepe unde iure. Corporis nam doloribus nihil quas ut consequatur. Aliquam perferendis in debitis reprehenderit dolorum.'),
-  //   [...]
-  // .catch(() => {
-  //   console.log('Is it here?');
-  // })
 
 module.exports = {
   getCharities,
