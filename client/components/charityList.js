@@ -10,4 +10,4 @@ const charityList = (props) => (
   </div>
 );
 
-export default charityListItem;
+export default charityList;
