@@ -3,11 +3,11 @@ import charityListItem from './charityListItem';
 
 const charityList = (props) => (
   <div>
-    {props.bundle.map((charity) => {
+    {props.bundle.charities.map((charity, i) => {
       console.log(charity);
-      return <charityListItem charity={charity} key={charity.id} />
+      return <charityListItem charity={charity} key={i} />
     })}
   </div>
 );
 
-export default charityListItem;
+export default charityList;

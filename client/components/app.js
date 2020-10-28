@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import charityList from './charityList';
-// import exampleBundle from '../exampleBundle.js';
+import charityList from './charityList';
+import exampleBundle from '../exampleBundle.js';
 
 const Promise = require('bluebird');
 const axios = require('axios');
@@ -11,54 +11,60 @@ class App extends React.Component {
     super(props);
     this.state = {
       bundle: this.props.exampleBundle,
+      charities: []
     }
   }
 
   componentDidMount() {
-    // default state is 3x of the same charity, repeating
-    // mounted state will retrieve bundle 1 (for mockup)
-    this.handleBundle(1);
+    // mounted state mocks up bundle 1
+    this.handleBundle();
   }
 
   handleBundle(id = 1) {
-
-    axios.get('http://localhost:3987/charity/{id}/names')
+    // default state is 3x of the same charity
+    axios.get(`http://localhost:3987/charity/${id}/names`)
       .then((result) => {
         this.setState({ bundle: result });
-        console.log('Successfully updated the bundees!');
+        console.log('Bundle updated from server!');
+      })
+      .then(() => {
+        this.mapCharities();
       })
       .catch((err) => {
         console.log(`Error in AJAX request for server to retrieve from database: ${err}`);
-    })
+    });
 
   }
 
-  // mapCharities() {
+  mapCharities() {
+    // setState will have updated the bundle
+    let bundleId = this.state.bundle;
+    let eachCharity = [];
+    for (var key in this.state.bundle) {
+      // using 0 for undefined charity2 / charity3
+      if ((key !== "id") && (bundle[key] !== 0)) {
+        eachCharity.push(bundle[key]);
+      }
+    }
+    this.setState({
+      bundle: bundleId,
+      charities: eachCharity
+    });
+    console.log(`Mapped charities: ${this.state.charities}`);
+  }
 
-  //   this.state.bundle.map((bundle) => {
-  //     console.log(bundle);
-  //     let charities =
-  //   });
-
-  //  {this.state.bundles.map((bundle) => {
-  //    <CharityList charity={this.state.bundle}></CharityList>
-  //       return (
-  //
-  //      )
-  //    }
-  //  }
-
-  // A row of 3 charities, mapped according to description (will later be just images)
-
+    // 3 charities, mapped (to do: images)
   render() {
     return (
       <div>
-        This is a test
+        Testing bundle: {this.state.bundle}
+        {this.state.charities.map((oneCharity) => {
+          <charityList charity={oneCharity} />
+        })}
       </div>
     );
   }
 
 };
 
-/* bundle={exampleBundle} */
 ReactDOM.render(<App />, document.getElementById('charity'));
