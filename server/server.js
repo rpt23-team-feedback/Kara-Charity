@@ -11,13 +11,13 @@ app.use(bodyParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  next();
+});
+
 // Seed script:
 // mysql -u root < schema.sql
-
-// This used to be hardcoded, but removed when app.listen isolated into separate file for testing purposes:
-// app.listen(port, () => {
-//   console.log(`listening on port ${port}`);
-// });
 
 // dev/testing use only
 app.get('/charity/all', (req, res) => {
@@ -54,6 +54,7 @@ app.get('/charity/:bundleId/names', (req, res) => {
 });
 
 // Ignore commented:
+//
 // Currently mocked until S3 images - this will be for external routes that only need the image
 // app.get('/charity/:bundleId/image', (req, res) => {
 //   db.getCharitiesById(req.params.bundleId)
