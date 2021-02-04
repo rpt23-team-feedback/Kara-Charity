@@ -2,12 +2,14 @@ const express = require('express');
 const Promise = require('bluebird');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
+const cors = require('cors');
 const path = require('path');
 const db = require('../db/index.js');
 
 const app = express();
 const port = 3987;
 
+app.use(cors());
 app.use(morgan('dev'));
 app.use(bodyParser());
 app.use(bodyParser.json());
@@ -16,6 +18,7 @@ app.use(express.static(path.join(__dirname, '../dist')));
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   next();
 });
 
@@ -80,5 +83,5 @@ app.get('*', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Shortly is listening on ${port}`);
+  console.log(`Server is listening on ${port}`);
 });

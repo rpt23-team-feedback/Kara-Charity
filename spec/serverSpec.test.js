@@ -3,11 +3,6 @@ const express = require("express");
 const app = require('../server/server.js');
 const db = require('../db/index.js');
 const database = 'charityTest';
-// getCharities, getCharityById, getBundles
-
-// TO RUN
-// npm test
-// first ensure the server is not running
 
 describe('MySQL Functionality', () => {
 

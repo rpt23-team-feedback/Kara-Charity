@@ -16,7 +16,7 @@ connection.connect((err) => {
   }
 });
 
-// for dev use
+// dev use only
 const getCharities = function(callback) {
   return new Promise((resolve, reject) => {
     const queryStr = `SELECT * FROM charity`;
@@ -31,7 +31,7 @@ const getCharities = function(callback) {
   });
 };
 
-// for dev use
+// dev use only
 const getBundles = function(callback) {
   return new Promise((resolve, reject) => {
     const queryStr = `SELECT * FROM bundles`;
@@ -64,7 +64,7 @@ const getCharityIdsByBundleId = function(id, callback) {
 // access all of a given charity's info, for image display and modal
 const getCharityById = function(id, callback) {
   return new Promise((resolve, reject) => {
-    const queryStr = `SELECT name FROM charity WHERE id = ${id}`;
+    const queryStr = `SELECT * FROM charity WHERE id = ${id}`;
 
     connection.query(queryStr, function(err, results) {
       if (err) {
