@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment, Component } from 'react';
 import CharityModal from './CharityModal.jsx';
 
 class CharityList extends React.Component {
