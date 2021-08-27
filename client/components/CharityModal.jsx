@@ -1,4 +1,5 @@
 import React from 'react';
+
 class CharityModal extends React.Component {
   render() {
     <div className="modal-container">
