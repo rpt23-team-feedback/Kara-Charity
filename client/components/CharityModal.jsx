@@ -1,16 +1,35 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const ModalContainer = styled.div`
+  margin-left: auto;
+  margin-right: auto;
+`;
+
+const CharityTitle = styled.div`
+  color: white;
+  font-size: 1.5rem;
+`;
+
+const CharityImage = styled.img`
+  display: flex;
+`;
+
+const CharityDescription = styled.div`
+  font-size: 1rem;
+`;
 
 class CharityModal extends React.Component {
   render() {
-    <div className="modal-container">
-      <div className="charity-title">
+    <ModalContainer>
+      <CharityTitle>
         {this.props.name}
-      </div>
+      </CharityTitle>
       <div className="charity-image" url={this.props.image}></div>
-      <div className="charity-description">
+      <CharityDescription>
         {this.props.description}
-      </div>
-    </div>
+      </CharityDescription>
+    </ModalContainer>
   }
 }
 
