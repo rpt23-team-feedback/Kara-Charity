@@ -4,10 +4,10 @@ import styled from 'styled-components';
 
 const GalleryTitle = styled.div`
   color: #f6f3f3;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   text-align: center;
   font-family: Helvetica;
-  font-weight: 700;
+  font-weight: 900;
   padding: 2rem;
 `;
 

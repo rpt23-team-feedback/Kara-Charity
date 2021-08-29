@@ -8,44 +8,58 @@ const ModalBackdrop = styled.div`
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.8);
-  transition: all .7s ease;
 `;
 
 const ModalContainer = styled.div`
+  color: #36363f;
+  background: #36363f;
+  position: relative;
   display: block;
-  align-items: center;
+  top: 20%;
   margin-left: auto;
   margin-right: auto;
-  width: 30%;
+  width: 33%;
+  border-radius: .5rem;
 `;
 
 const CharityTitle = styled.div`
   color: white;
   font-size: 1.5rem;
   text-align: center;
-  padding: 2rem;
+  padding: 1rem;
+`;
+
+const InnerModalContainer = styled.div`
+  background: #29292e;
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  width: 95%;
+  height: 50%;
 `;
 
 const Xout = styled.div`
-  display: inline-block;
-  align-items: right;
+  display: block;
+  float: right;
   color: white;
-  font-size: 1.5rem;
-  text-align: right;
+  font-size: 1.2rem;
+  font-weight: 900;
 `;
 
 const CharityImage = styled.img`
   display: block;
-  width: 100%;
+  width: 50%;
   margin-left: auto;
   margin-right: auto;
-  padding: 1rem;
+  padding: .9rem;
 `;
 
 const CharityDescription = styled.div`
+  display: block;
   color: white;
-  font-size: 1.25rem;
-  padding: 2rem;
+  font-size: .85rem;
+  padding: .8rem;
+  // margin-bottom: 1rem;
 `;
 
 class CharityModal extends React.Component {
@@ -65,10 +79,13 @@ class CharityModal extends React.Component {
             {this.props.name}
             <Xout onClick={() => {this.xOut()}}>X</Xout>
           </CharityTitle>
-          <CharityImage src={this.props.image}></CharityImage>
-          <CharityDescription>
-            {this.props.description}
-          </CharityDescription>
+          <InnerModalContainer>
+            <CharityImage src={this.props.image}></CharityImage>
+            <CharityDescription>
+              {this.props.description}
+            </CharityDescription>
+          </InnerModalContainer>
+          .
         </ModalContainer>
       </ModalBackdrop>
     )
