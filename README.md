@@ -1,4 +1,4 @@
-# Kara-Charity
+# Keira-Charity
 A module in FEC-Feedback's HumbleBundle
 
 This module provides the Charity data for each bundleId. It uses a mocked set of 100 unique charities mapped in sets of 1-3 across 100 unique bundleIds.
@@ -14,7 +14,6 @@ This module provides the Charity data for each bundleId. It uses a mocked set of
 
   [API call notes](#API)
   [Scripts & Usage](#Scripts)
-  [Dependencies](#Dependencies)
   [Developer Journal](#Notes)
 
 ## API
@@ -30,6 +29,9 @@ External routes (serving other modules):
 
 ## Scripts
 Run within the root directory.
+'npm run start'
+'npm run seed'
+'npm run build'
 
 Seed:
 mysql -u root < schema.sql
@@ -38,12 +40,5 @@ Env:
 npm install
 npm install --save-dev webpack
 
-## Dependencies
-TBD
-
 ## Notes
-Yesterday:
-Fixed React to work. Almost there on SSR!
-
-Today:
-Finish SSR and upload video. Update schema with mock image/video urls image/video urls. Add files to S3 and set app up to serve them. Update app service plan.
+2021 - HumbleBundle has changed their page a bit! This implementation emulates the version used by their site c. Fall 2020, which had centrally-aligned charity images with no titles, rather than the website's current right-aligned display.
