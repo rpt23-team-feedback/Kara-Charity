@@ -3,21 +3,26 @@ import CharityModal from './CharityModal.jsx';
 import styled from 'styled-components';
 
 const GalleryTitle = styled.div`
-  color: white;
+  color: #f6f3f3;
   font-size: 1.5rem;
   text-align: center;
+  font-family: Helvetica;
+  font-weight: 700;
+  padding: 2rem;
 `;
 
 const GalleryImages = styled.div`
   display: flex;
-  max-width: 50%;
+  max-width: 65%;
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
+  list-style-type: none;
 `;
 
 const GalleryImage = styled.img`
-  width: 50%;
+  width: 90%;
+  padding: .5rem;
 `;
 
 class CharityList extends React.Component {
@@ -27,21 +32,27 @@ class CharityList extends React.Component {
       modalOpen: false,
       charityData: null
     }
-    this.toggleModal = this.toggleModal.bind(this);
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
 
-  toggleModal(i) {
-    const modalBool = this.state.modalOpen;
+  openModal(i) {
     this.setState({
-      modalOpen: !modalBool,
+      modalOpen: true,
       charityData: this.props.charities[i]
+    });
+  }
+
+  closeModal() {
+    this.setState({
+      modalOpen: false
     });
   }
 
   render() {
     const charities = this.props.charities;
     const charityData = this.state.charityData;
-    const open = this.state.open;
+    const modalOpen = this.state.modalOpen;
     return (
       <React.Fragment>
         <GalleryTitle>
@@ -52,16 +63,17 @@ class CharityList extends React.Component {
             return <li key={idx}>
               <GalleryImage
                 src={charity.image}
-                onClick={() => this.toggleModal(idx)}
+                onClick={() => this.openModal(idx)}
               ></GalleryImage>
             </li>
           })}
         </GalleryImages>
         <div>
-          {open ? <CharityModal
+          {modalOpen ? <CharityModal
             name={charityData.name}
             image={charityData.image}
             description={charityData.description}
+            modalClose={() => this.closeModal()}
           /> : null}
         </div>
       </React.Fragment>
