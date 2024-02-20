@@ -1,4 +1,4 @@
-# Keira-Charity
+# Kara-Charity
 A module in FEC-Feedback's HumbleBundle
 
 This module provides the Charity data for each bundleId. It uses a mocked set of 100 unique charities mapped in sets of 1-3 across 100 unique bundleIds.
